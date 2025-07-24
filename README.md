@@ -16,6 +16,7 @@ This is my first robotics project, it simulates a smart traffic light controlled
 
 ## 🔌 Wiring Diagram
 
+Comming soon...
 <!-- Replace with your actual diagram -->
 ![Wiring Diagram](wiring-diagram.png)
 
@@ -42,11 +43,13 @@ The LCD updates every second to display the current message and a countdown for 
 ## 🧠 FSM Diagram
 
 <!-- You can replace this with a photo of your iPad notes -->
+Comming soon...
 ![FSM Diagram](fsm-diagram.png)
 
 ## 🖼️ Project Images
 
 <!-- Replace with actual photos -->
+Comming soon...
 ![Final Project Setup](final-setup.jpg)
 <!-- (optional) -->
 ![Development Process](process.jpg)
@@ -55,7 +58,7 @@ The LCD updates every second to display the current message and a countdown for 
 ## 🎥 Demo Video
 
 <!-- Link to your hosted video -->
-
+Comming soon...
 ---
 
 📌 *This project marks the beginning of my robotics portfolio as a Computer Science student. It was built to practice controlling physical systems using microcontrollers and basic electronic components.*
