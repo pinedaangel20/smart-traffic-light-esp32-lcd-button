@@ -1,6 +1,6 @@
 # Smart Traffic Light with ESP32 + LCD + Button
 
-![Demo Video](demo.mp4)
+![Demo](demo.gif)
 
 
 
