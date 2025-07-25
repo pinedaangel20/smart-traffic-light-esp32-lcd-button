@@ -2,7 +2,7 @@
 
 This is my first robotics project, it simulates a smart traffic light controlled by an ESP32 using a finite state machine (FSM). The system includes a 16x2 I2C LCD display for real-time messages and a button that allows users to request the green light.
 
-## 🚦 Components Used
+## Components Used
 
 - ESP32 Dev Board  
 - 16x2 LCD Display with I2C interface  
@@ -14,13 +14,7 @@ This is my first robotics project, it simulates a smart traffic light controlled
 - Jumper wires  
 - Breadboard  
 
-## 🔌 Wiring Diagram
-
-Comming soon...
-<!-- Replace with your actual diagram -->
-![Wiring Diagram](wiring-diagram.png)
-
-## ⚙️ How It Works
+## How It Works
 
 The traffic light is managed by a finite state machine with three main states: `RED`, `YELLOW`, and `GREEN`. Here's the logic:
 
@@ -42,10 +36,18 @@ The LCD updates every second to display the current message and a countdown for 
 
 ![FSM Diagram](fsm-diagram.png)
 
+
 ![Project On](on.png)
+
+
 ![Project Off](off.png)
 
 ![Demo Video](demo.mp4)
+
+# Goal
+Why I Built This
+
+As a Computer Science student, I built this to dive into the world of robotics and embedded systems. My goal was to understand the basics of hardware interaction and get hands-on experience with microcontrollers, timing, and state management.
 
 ---
 
