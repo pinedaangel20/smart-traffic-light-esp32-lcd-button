@@ -17,8 +17,11 @@ State currentState = RED;
 State previousState = RED;
 
 int buttonState = LOW;
+bool buttonWasPressed = false;
+bool enteredRed = false;
 
 unsigned long startTime = 0; 
+unsigned long lastLcdUpdate = 0;
 // Initialize I2C 
 LiquidCrystal_I2C lcd(0x27, 16, 2); 
 
@@ -26,9 +29,9 @@ void setup()
 {
   lcd.init(); // Initialize LCD
   lcd.backlight(); // Turn LCD backlight ON
-  lcd.print("Press button for green");
+  lcd.print("Press for green");
   // Activates comunication between Laptop & ESP32
-  Serial.begin(115200);
+  Serial.begin(19200);
   // Initialize LED pins to OUTPUT
   pinMode(red_PIN, OUTPUT);
   pinMode(yellow_PIN, OUTPUT);
@@ -42,26 +45,71 @@ void loop()
   // read the state of the button value
   buttonState = digitalRead(buttonPIN);
   delay(50);
+  Serial.print("Botón: ");
+  Serial.println(buttonState);
+
+  if (currentState == RED && !enteredRed) 
+  {
+  startTime = millis();
+  enteredRed = true;
+  } 
+  else if (currentState != RED) 
+  {
+    enteredRed = false;
+  }
 
   switch (currentState)
   {
   case RED:
     digitalWrite(red_PIN, HIGH); // TURN RED LED ON
+
+    if(millis() - lastLcdUpdate >= 1000)
+    {
+      lcd.setCursor(0,0);
+      if(!buttonWasPressed)
+      {
+        lcd.print("Press for green");
+      }
+      else
+      {
+        lcd.print("Waiting for green");
+      }
+
+      lcd.setCursor(0, 1);
+      unsigned long countdown = ((60000 - lastLcdUpdate) / 1000);
+      lcd.print(countdown);
+
+      lastLcdUpdate = millis();
+    }
+
     if (buttonState == HIGH)
     {
-      if (millis() - startTime >= 3000)
-      {
-        digitalWrite(red_PIN, LOW); // Turn RED LED OFF
-        currentState = YELLOW;
-        startTime = millis();
-      }
+      buttonWasPressed = true;
     }
+
+    if (buttonWasPressed && millis() - startTime >= 3000)
+    {
+      digitalWrite(red_PIN, LOW); // Turn RED LED OFF
+      currentState = YELLOW;
+      previousState = RED;
+      startTime = millis();
+      buttonWasPressed = false;
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Turning yellow...");
+    }
+    
     // Wait 60 seconds to turn Yellow
     else if (millis() - startTime >= 60000)
     {
       digitalWrite(red_PIN, LOW); // Turn RED LED OFF
       currentState = YELLOW;
+      previousState = RED;
       startTime = millis();
+      buttonWasPressed = false;
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Turning yellow...");
     }
     break;
 
@@ -73,12 +121,17 @@ void loop()
       currentState = GREEN;
       previousState = YELLOW;
       startTime = millis(); 
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Go, green Light!");
     }
     else if (millis() - startTime >= 3000 && previousState == GREEN)
     {
       digitalWrite(yellow_PIN, LOW); // TURN YELLOW LED 0FF
       currentState = RED;
       previousState = YELLOW;
+      startTime = millis(); 
+      lcd.clear();
       startTime = millis(); 
     }
     break;
@@ -91,6 +144,9 @@ void loop()
       currentState = YELLOW;
       previousState = GREEN;
       startTime = millis();
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Waiting...");
     }
     break;
   } 

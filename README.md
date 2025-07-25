@@ -40,25 +40,13 @@ The traffic light is managed by a finite state machine with three main states: `
 
 The LCD updates every second to display the current message and a countdown for the current state.
 
-## 🧠 FSM Diagram
-
-<!-- You can replace this with a photo of your iPad notes -->
-Comming soon...
 ![FSM Diagram](fsm-diagram.png)
 
-## 🖼️ Project Images
+![Project On](on.png)
+![Project Off](off.png)
 
-<!-- Replace with actual photos -->
-Comming soon...
-![Final Project Setup](final-setup.jpg)
-<!-- (optional) -->
-![Development Process](process.jpg)
-![LCD Output](lcd-screen.jpg)
+![Demo Video](demo.mp4)
 
-## 🎥 Demo Video
-
-<!-- Link to your hosted video -->
-Comming soon...
 ---
 
 📌 *This project marks the beginning of my robotics portfolio as a Computer Science student. It was built to practice controlling physical systems using microcontrollers and basic electronic components.*
