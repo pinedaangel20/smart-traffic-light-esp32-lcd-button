@@ -49,8 +49,7 @@ The LCD updates every second to display the current message and a countdown for 
 ![Project Off](off.png)
 
 
-# Goal
-Why I Built This
+# Why I Built This
 
 As a Computer Science student, I built this to dive into the world of robotics and embedded systems. My goal was to understand the basics of hardware interaction and get hands-on experience with microcontrollers, timing, and state management.
 
