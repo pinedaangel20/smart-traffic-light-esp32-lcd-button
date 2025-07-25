@@ -1,5 +1,11 @@
 # Smart Traffic Light with ESP32 + LCD + Button
 
+![Demo Video](demo.mp4)
+
+
+
+
+
 This is my first robotics project, it simulates a smart traffic light controlled by an ESP32 using a finite state machine (FSM). The system includes a 16x2 I2C LCD display for real-time messages and a button that allows users to request the green light.
 
 ## Components Used
@@ -42,7 +48,6 @@ The LCD updates every second to display the current message and a countdown for 
 
 ![Project Off](off.png)
 
-![Demo Video](demo.mp4)
 
 # Goal
 Why I Built This
