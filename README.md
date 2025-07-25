@@ -36,6 +36,9 @@ The traffic light is managed by a finite state machine with three main states: `
 
 The LCD updates every second to display the current message and a countdown for the current state.
 
+![Wiring Diagram](wiring-diagram.png)
+
+
 ![FSM Diagram](fsm-diagram.png)
 
 
